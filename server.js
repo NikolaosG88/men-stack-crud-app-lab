@@ -18,20 +18,30 @@ app.use(express.urlencoded({ extended: false }));
 // routes below
 
 // Lets connct to MongoDB
-// mongoose.connect(process.env.MONGODB_URI);
+mongoose.connect(process.env.MONGODB_URI);
 
 //LETS  UPDATE THE TERMINAL WITH CORRECT STATUS
 
-// mongoose.connection.on("connected", () => {
-//     console.log(`Connected to MongoDB ${mongoose.connection.name}.`);
-//   });
+mongoose.connection.on("connected", () => {
+    console.log(`Connected to MongoDB ${mongoose.connection.name}.`);
+  });
 
   app.get("/", async  (req, res) => {
     // res.render("index.ejs");
   res.send("Solar System Check");
 });
 
-const Planites = require("./models/planites.js");
+const Planiti = require("./models/planiti.js");
+
+app.get("/planites", async (req, res) => {
+    // const allPlanites = await Planiti.find();
+    // res.render("planites/index.ejs", { fruits: allFruits });
+    res.send("<h1>Welcome to Planites index page</h1><hr>");
+    // console.log(allFruits);
+}) 
+
+app.post("/planites", async (req, res) => {
+});
 
 //____________________________________________//
 
