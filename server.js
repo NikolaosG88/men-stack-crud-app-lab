@@ -27,21 +27,71 @@ mongoose.connection.on("connected", () => {
   });
 
   app.get("/", async  (req, res) => {
-    // res.render("index.ejs");
-  res.send("Solar System Check");
+    res.render("home.ejs");
+//   res.send("Solar System Check");
 });
 
-const Planiti = require("./models/planiti.js");
+const Planet = require("./models/planet.js");
 
-app.get("/planites", async (req, res) => {
-    // const allPlanites = await Planiti.find();
-    // res.render("planites/index.ejs", { fruits: allFruits });
-    res.send("<h1>Welcome to Planites index page</h1><hr>");
+app.get("/planets", async (req, res) => {
+    const allPlanets = await Planet.find();
+    res.render("planets/index.ejs", { planets: allPlanets });
+    // res.send("<h1>Welcome to Planets index page</h1><hr>");
     // console.log(allFruits);
 }) 
 
-app.post("/planites", async (req, res) => {
+app.post("/planets", async (req, res) => {
+    if (req.body.spin ==="on") {
+        req.body.spin = true;
+    } else {
+        req.body.spin = false;
+    }
+
+    await Planet.create(req.body);
+    res.redirect("/planets");
 });
+
+app.get("/planets/new", (req,res) => {
+    res.render("planets/new.ejs");
+});
+
+app.get("/planets/:planetId", async (req, res) => {
+    const foundPlanet = await Planet.findById(req.params.planetId);
+    //  res.send(`This route render the show page for fruit id: ${req.params.fruitID} `);
+    res.render("planets/show.ejs", { planet: foundPlanet });
+});
+
+app.delete("/planets/:planetId", async (req, res) => {
+    await Fruit.findByIdAndDelete(req.params.planetId);
+    res.redirect("/planets");
+    // res.send("This is the delete route");
+});
+
+// GET localhost:3000/fruits/:fruitId/edit
+app.get("/planets/:planetId/edit", async (req, res) => {
+    const foundPlanet = await Planet.findById(req.params.planetId);
+    res.render("planets/edit.ejs", {
+        planet: foundPlanet,
+      });
+    // console.log(foundFruit);
+    // res.send(`This is the edit route for ${foundFruit.name}`);
+  });
+
+  app.put("/planets/:planetId", async (req, res) => {
+    // Handle the "isReadyToEat" checkbox data
+    if (req.body.spin === "on") {
+      req.body.spin = true;
+    } else {
+      req.body.spin = false;
+    }
+    
+    // Update the fruit in the database
+    await Planet.findByIdAndUpdate(req.params.planetId, req.body);
+  
+    // Redirect to the fruit"s show page to see the updates
+    res.redirect(`/planets/${req.params.planetId}`);
+  });
+
 
 //____________________________________________//
 

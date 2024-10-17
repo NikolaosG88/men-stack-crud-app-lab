@@ -1,0 +1,22 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>planets Index</title>
+  </head>
+  <body>
+    <h1>All Planets in our System</h1>
+    <hr>
+    <ul>
+      <% planets.forEach(planet => { %>
+        <h2><a href="/planets/<%= planet._id %>"><%= planet.name %></a></h2>
+        <li><a href="/planets/<%= planet._id %>"></a>Description:  <%= planet.description %></a></li>
+        <li><a href="/planets/<%= planet._id %>"></a>Satelites : <%= planet.satelites %></a></li>
+        <li><a href="/planets/<%= planet._id %>"></a>Spin : <%= planet.spin === true ? "Yes" : "No" %></a></li>
+      <% }); %>
+    </ul>
+    <hr>
+   <button><a href="/planets/new">Add a new planet</a></button>
+  </body>
+</html>

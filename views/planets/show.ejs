@@ -1,0 +1,26 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title><%= planet.name %></title>
+</head>
+<body>
+    <h1><%= planet.name %></h1>
+    <% if(planet.spin) { %>
+    <p>This planet rotates on its axis!</p>
+    <% } else { %>
+    <p>This planet doesn't rotate on its axis!</p>
+    <% } %>
+
+    <!-- new delete button -->
+
+    <form action="/planets/<%=planet._id%>?_method=DELETE" method="POST">
+        <button type="submit">Delete <%= planet.name %></button>
+      </form>
+      <br>
+      <hr>
+      <a href="/planets/<%= planet._id %>/edit">Edit <%= planet.name %></a> &nbsp&nbsp
+      <a href="/planets/">Back to Solar System</a>
+</body>
+</html>
