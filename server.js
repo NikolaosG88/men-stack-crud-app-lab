@@ -62,7 +62,7 @@ app.get("/planets/:planetId", async (req, res) => {
 });
 
 app.delete("/planets/:planetId", async (req, res) => {
-    await Fruit.findByIdAndDelete(req.params.planetId);
+    await Planet.findByIdAndDelete(req.params.planetId);
     res.redirect("/planets");
     // res.send("This is the delete route");
 });
