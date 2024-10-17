@@ -37,7 +37,6 @@ app.get("/planets", async (req, res) => {
     const allPlanets = await Planet.find();
     res.render("planets/index.ejs", { planets: allPlanets });
     // res.send("<h1>Welcome to Planets index page</h1><hr>");
-    // console.log(allFruits);
 }) 
 
 app.post("/planets", async (req, res) => {
@@ -57,38 +56,33 @@ app.get("/planets/new", (req,res) => {
 
 app.get("/planets/:planetId", async (req, res) => {
     const foundPlanet = await Planet.findById(req.params.planetId);
-    //  res.send(`This route render the show page for fruit id: ${req.params.fruitID} `);
     res.render("planets/show.ejs", { planet: foundPlanet });
 });
 
 app.delete("/planets/:planetId", async (req, res) => {
     await Planet.findByIdAndDelete(req.params.planetId);
     res.redirect("/planets");
-    // res.send("This is the delete route");
 });
 
-// GET localhost:3000/fruits/:fruitId/edit
 app.get("/planets/:planetId/edit", async (req, res) => {
     const foundPlanet = await Planet.findById(req.params.planetId);
     res.render("planets/edit.ejs", {
         planet: foundPlanet,
       });
-    // console.log(foundFruit);
-    // res.send(`This is the edit route for ${foundFruit.name}`);
   });
 
   app.put("/planets/:planetId", async (req, res) => {
-    // Handle the "isReadyToEat" checkbox data
+    // Handle the "spin" checkbox data
     if (req.body.spin === "on") {
       req.body.spin = true;
     } else {
       req.body.spin = false;
     }
     
-    // Update the fruit in the database
+    // Update the planet in the database
     await Planet.findByIdAndUpdate(req.params.planetId, req.body);
   
-    // Redirect to the fruit"s show page to see the updates
+    // Redirect to the planets show page to see the updates
     res.redirect(`/planets/${req.params.planetId}`);
   });
 
