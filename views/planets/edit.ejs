@@ -8,16 +8,19 @@
 <body>
   <h1>Edit <%= planet.name %></h1>
   <form action="/planets/<%=planet._id%>?_method=PUT" method="POST">
-    <label for="name">Name:</label>
+    <label for="name">Planet Name:</label>
     <input type="text" name="name" value="<%= planet.name %>" />
 <br>
-    <label for="description">Description:</label>
+    <label for="description">&nbsp&nbspDescription:</label>
     <input type="text" name="description" value="<%= planet.description %>" />
 <br>
-    <label for="satelites">Satelites:</label>
-    <input type="text" name="satelites" value="<%= planet.satelites %>" />
+    <label for="satelites">&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbspSatelites:</label>
+    <input type="number" name="satelites" value="<%= planet.satelites %>" />
 <br>
-    <label for="spin">Spin</label>
+    <label for="sun">&nbsp&nbsp&nbsp&nbsp&nbsp One Year:</label>
+    <input type="number" name="sun" value="<%= planet.sun %>" />
+<br>
+    <label for="spin">&nbsp&nbsp&nbsp&nbsp&nbsp&nbspSpin faster then Earth</label>
     <input type="checkbox" name="spin" <% if (planet.spin) { %>checked<% } %> >
     <br>
     <br>

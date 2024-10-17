@@ -5,6 +5,7 @@ const planetSchema = new mongoose.Schema({
   name: String,
   description: String,
   satelites: Number,
+  sun: Number,
   spin: Boolean,
   image: String,
 });

@@ -9,7 +9,7 @@
   <h1>Discover New Planet !</h1>
   <form action="/Planets" method="POST">
     <label for="name">Planet Name:</label>
-    <input type="text" name="name" id="name" />
+    <input type="text" name="name" id="name" required/>
     <br>
     <label for="description">&nbsp&nbspDescription:</label>
     <input type="text" name="description" id="description" />
@@ -17,7 +17,10 @@
     <label for="satelites">&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbspSatelites:</label>
     <input type="number" name="satelites" id="satelites" />
     <br>
-    <label for="spin">&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbspSpin</label>
+    <label for="sun">&nbsp&nbsp&nbsp&nbsp&nbsp&nbspOne year:</label>
+    <input type="number" name="sun" id="sun" />
+    <br>
+    <label for="spin">&nbsp&nbsp&nbsp&nbsp&nbsp&nbspSpins faster then Earth:</label>
     <input type="checkbox" name="spin" id="spin" />
     <br>
     <br>

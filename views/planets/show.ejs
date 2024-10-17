@@ -8,19 +8,23 @@
 <body>
     <h1><%= planet.name %></h1>
     <% if(planet.spin) { %>
-    <p>This planet rotates on its axis!</p>
+    <p><%= planet.name %> spins faster on its axis compared to Earth!</p>
     <% } else { %>
-    <p>This planet doesn't rotate on its axis!</p>
+    <p>This planet spins slower on its axis compared to Earth!</p>
     <% } %>
+    <% if(planet.sun) { %>
+        <p>This planet needs <%= planet.sun %> Earth Days to rotate Sun!</p>
+        <% } else { %>
+        <p>No data available please do your homework :-) </p>
+        <% } %>
 
-    <!-- new delete button -->
 
     <form action="/planets/<%=planet._id%>?_method=DELETE" method="POST">
         <button type="submit">Delete <%= planet.name %></button>
       </form>
       <br>
       <hr>
-      <a href="/planets/<%= planet._id %>/edit">Edit <%= planet.name %></a> &nbsp&nbsp
+      <button><a href="/planets/<%= planet._id %>/edit">Edit <%= planet.name %></a></button> &nbsp&nbsp
       <a href="/planets/">Back to Solar System</a>
 </body>
 </html>
