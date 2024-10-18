@@ -15,7 +15,7 @@
     <% if (planet.sun && planet.name !== "Earth") { %>
         <p>This planet needs <%= planet.sun %> Earth Days to rotate Sun !</p>
         <% } else { %>
-        <p><%= planet.name === "Earth" || "earth" ? "This Is Earth & needs 365 days to rotate Sun" : "No data available please do your homework :-)" %></p>
+        <p><%= planet.name === "Earth" || "" ? "This Is Earth & needs 365 days to rotate Sun" : "No data available please do your homework :-)" %></p>
         <% } %>
 
 
