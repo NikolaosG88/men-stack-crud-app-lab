@@ -13,8 +13,14 @@
         <h2><a href="/planets/<%= planet._id %>"><%= planet.name %></a></h2>
         <li><a href="/planets/<%= planet._id %>"></a>Description:  <%= planet.description %></a></li>
         <li><a href="/planets/<%= planet._id %>"></a>Satelites : <%= planet.satelites %></a></li>
-        <li><a href="/planets/<%= planet._id %>"></a>One Year : <%= planet.sun %> Earth days</a></li>
-        <li><a href="/planets/<%= planet._id %>"></a>Spins Faster then Earth : <%= planet.spin === true ? "Yes" : "No" %></a></li>
+        <li><a href="/planets/<%= planet._id %>"></a>One Year (in Days) : 
+          <% if (planet.sun && planet.sun !== '') { %>
+            <%= planet.sun %> Earth Days
+          <% } else { %>
+            No information about the year length
+          <% } %>
+        </a></li>
+        <li><a href="/planets/<%= planet._id %>"></a>Spins Faster then Earth : <%= planet.spin === true  ? "Yes" : "No" %></a></li>
         <% }); %>
     </ul>
     <hr>
