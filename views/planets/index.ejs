@@ -20,7 +20,17 @@
             No information about the year length
           <% } %>
         </a></li>
-        <li><a href="/planets/<%= planet._id %>"></a>Spins Faster then Earth : <%= planet.spin === true  ? "Yes" : "No" %></a></li>
+        <li><a href="/planets/<%= planet._id %>"></a>Spins Faster then Earth : 
+          <% if (planet.spin === true) { %>
+            Yes
+            <% } else { %>
+            <% if (planet.sun === 365) { %>
+              Same spin with reference point
+              <% } else { %>
+                No
+              <% } %>
+            <% } %>
+          </a></li>
         <% }); %>
     </ul>
     <hr>
