@@ -12,13 +12,13 @@
     <input type="text" name="name" value="<%= planet.name %>" />
 <br>
     <label for="description">&nbsp&nbspDescription:</label>
-    <input type="text" name="description" value="<%= planet.description %>" />
+    <input type="text" name="description" value="<%= planet.description %>" /> (Main characteristic)
 <br>
     <label for="satelites">&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbspSatelites:</label>
-    <input type="number" name="satelites" value="<%= planet.satelites %>" />
+    <input type="number" name="satelites" value="<%= planet.satelites %>" /> (or Moons)
 <br>
     <label for="sun">&nbsp&nbsp&nbsp&nbsp&nbsp One Year:</label>
-    <input type="number" name="sun" value="<%= planet.sun %>" />
+    <input type="number" name="sun" value="<%= planet.sun %>" /> (Earth days)
 <br>
     <label for="spin">&nbsp&nbsp&nbsp&nbsp&nbsp&nbspSpin faster then Earth</label>
     <input type="checkbox" name="spin" <% if (planet.spin) { %>checked<% } %> >
