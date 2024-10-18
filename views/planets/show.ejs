@@ -8,14 +8,14 @@
 <body>
     <h1><%= planet.name %></h1>
     <% if(planet.spin) { %>
-    <p><%= planet.name %> Spins faster on its Axis compared to Earth!</p>
-    <% } else { %>
-    <p>This planet spins slower on its axis compared to Earth!</p>
+    <p><%= planet.name === "Earth" || "earth" ? "The UoM is Earth = hence 1 Spin" : "Spins faster on its Axis compared to Earth" %> !</p>
+    <% } else { %> 
+        <p><%= planet.name === "Earth" || "earth" ? "The UoM is Earth = hence 1 Spin" : "This Planet spins slower on its axis compared to Earth!" %></p>
     <% } %>
-    <% if(planet.sun) { %>
-        <p>This planet needs <%= planet.sun %> Earth Days to rotate Sun!</p>
+    <% if (planet.sun && planet.name !== "Earth") { %>
+        <p>This planet needs <%= planet.sun %> Earth Days to rotate Sun !</p>
         <% } else { %>
-        <p>No data available please do your homework :-) </p>
+        <p><%= planet.name === "Earth" || "earth" ? "This Is Earth & needs 365 days to rotate Sun" : "No data available please do your homework :-)" %></p>
         <% } %>
 
 
